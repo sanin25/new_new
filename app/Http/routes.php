@@ -22,5 +22,9 @@ Route::group(['middleware' => ['web']], function () {
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
 
-    Route::get('/home', 'HomeController@index');
+    Route::get('/admin', ['uses' => 'Admin\AdminController@index', 'as' => 'admin']);
+    Route::post('/admin/add', ['uses' => 'Admin\AdminController@add', 'as' => 'addpost']);
+    Route::get('/admin/add', ['uses' => 'Admin\AdminController@add', 'as' => 'add']);
+
+
 });
